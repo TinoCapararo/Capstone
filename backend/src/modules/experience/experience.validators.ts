@@ -1,7 +1,7 @@
 import { BaseValidator, Val } from 'pangea-server';
 
 export interface ExperienceBase {
-  userId: Val.Id;
+  personId: Val.Id;
   context: Val.MaxLen<'short'>;
   emotions: Val.Str[];
   dashboardData: Val.Str | null;
@@ -10,7 +10,7 @@ export interface ExperienceBase {
 }
 
 export interface ExperienceValidator extends BaseValidator {
-  GetExperiences: { query?: Val.GetManyQueryBase & { userId?: Val.IdOptional } };
+  GetExperiences: { query?: Val.GetManyQueryBase & { personId?: Val.IdOptional } };
   CreateExperience: { body: ExperienceBase };
   UpdateExperience: { params: Val.IdParams; body: ExperienceBase };
 }

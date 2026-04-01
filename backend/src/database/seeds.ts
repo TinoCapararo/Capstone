@@ -1,9 +1,9 @@
-import { capstoneUsers } from '@/modules/user/user.seed';
+import { persons } from '@/modules/person/person.seed';
 import { experiences } from '@/modules/experience/experience.seed';
 import { advices } from '@/modules/advice/advice.seed';
 
 export const seeds = {
-  CapstoneUser: capstoneUsers,
+  Person: persons,
   Experience: experiences,
   Advice: advices,
 };

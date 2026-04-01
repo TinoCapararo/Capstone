@@ -1,12 +1,12 @@
 import { BaseModel, Table, col, rel } from 'pangea-server';
 // models
-import { CapstoneUser } from '../user/user.model';
+import { Person } from '../person/person.model';
 
-@Table('capstone_experiences')
+@Table('experiences')
 export class Experience extends BaseModel {
   // relations
-  @col.ForeignKey(() => CapstoneUser) userId!: ModelId;
-  @rel.BelongsTo(() => CapstoneUser) user!: CapstoneUser;
+  @col.ForeignKey(() => Person) personId!: ModelId;
+  @rel.BelongsTo(() => Person) person!: Person;
   // fields
   @col.Str({ maxLength: 'short' }) context!: string;
   @col.StrArray() emotions!: ColDefault<string[]>;

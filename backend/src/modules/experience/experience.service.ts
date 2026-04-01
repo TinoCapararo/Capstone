@@ -8,9 +8,9 @@ export class ExperienceService extends AppService {
     return this.db.findOne(Experience, id);
   }
   async getMany(params: Validator['GetExperiences']['query'] = {}) {
-    const { page, pageSize, userId, search } = params;
+    const { page, pageSize, personId, search } = params;
     const where: Where<Experience> = {};
-    if (userId) where.userId = userId;
+    if (personId) where.personId = personId;
     return this.db.findManyWithCount(Experience, {
       where,
       searchFields: ['context', 'suggestedAction'],
