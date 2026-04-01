@@ -8,8 +8,9 @@ export class AdviceService extends AppService {
     return this.db.findOne(Advice, id);
   }
   async getMany(params: Validator['GetAdvices']['query'] = {}) {
-    const { page, pageSize, experienceId, search } = params;
+    const { page, pageSize, personId, experienceId, search } = params;
     const where: Where<Advice> = {};
+    if (personId) where.personId = personId;
     if (experienceId) where.experienceId = experienceId;
     return this.db.findManyWithCount(Advice, {
       where,
